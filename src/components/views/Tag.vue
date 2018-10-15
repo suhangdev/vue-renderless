@@ -19,7 +19,7 @@ export default class Tag extends Vue {
     let tempStr: string
     tempStr = this.newTag.trim()
     this.newTag = ''
-    return [...this.value, tempStr]
+    this.value.push(tempStr)
   }
   private render () {
     return this.$scopedSlots.default({
@@ -38,7 +38,8 @@ export default class Tag extends Vue {
             this.addTag()
           }
         }
-      }
+      },
+      addTag: this.addTag
     })
   }
 }

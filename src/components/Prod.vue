@@ -1,12 +1,13 @@
 <template>
   <div class="prod">
     <Tag v-model="tags">
-      <div slot-scope="{ tags, removeTag, inputAttrs, inputEvents }">
+      <div slot-scope="{ tags, removeTag, inputAttrs, inputEvents, addTag }">
         <div v-for="(tag, index) in tags" :key="index">
           <span>{{tag}}</span>
           <button @click="removeTag(tag)">&times;</button>
         </div>
         <input type="text" v-bind="inputAttrs" v-on="inputEvents" placeholder="Add tag">
+        <button @click="addTag">add</button>
       </div>
     </Tag>
   </div>
