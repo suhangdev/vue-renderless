@@ -10,23 +10,30 @@
         <button @click="addTag">add</button>
       </div>
     </Tag>
+    <p>{{str}}</p>
+    <Throttling v-model="str" :delay="500">
+      <input slot-scope="{ inputAttrs, inputEvents }" type="text" v-bind="inputAttrs" v-on="inputEvents" >
+    </Throttling>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import Tag from './views/Tag.vue'
+import Throttling from './views/Throttling.vue'
 
 @Component({
   components: {
-    Tag
+    Tag,
+    Throttling
   }
 })
-export default class Prod extends Vue {
+export default class Example extends Vue {
   private tags!: string[]
   private data () {
     return {
-      tags: ['tag1', 'tag2']
+      tags: ['tag1', 'tag2'],
+      str: ''
     }
   }
 }

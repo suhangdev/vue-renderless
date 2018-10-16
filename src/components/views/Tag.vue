@@ -12,7 +12,7 @@ export default class Tag extends Vue {
       }
     })
   }
-  @Emit() private addTag () {
+  private addTag () {
     if (this.newTag.trim().length === 0 || this.value.includes(this.newTag.trim())) {
       return
     }
@@ -44,8 +44,3 @@ export default class Tag extends Vue {
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="less">
-
-</style>
