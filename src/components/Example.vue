@@ -11,10 +11,8 @@
       </div>
     </Tag>
     <p>{{str}}</p>
-    <Throttling v-model="str">
-      <div slot-scope="{ inputAttrs, inputEvents }">
-        <input type="text" v-bind="inputAttrs" v-on="inputEvents" >
-      </div>
+    <Throttling v-model="str" :delay="500">
+      <input slot-scope="{ inputAttrs, inputEvents }" type="text" v-bind="inputAttrs" v-on="inputEvents" >
     </Throttling>
   </div>
 </template>
@@ -30,7 +28,7 @@ import Throttling from './views/Throttling.vue'
     Throttling
   }
 })
-export default class Prod extends Vue {
+export default class Example extends Vue {
   private tags!: string[]
   private data () {
     return {
